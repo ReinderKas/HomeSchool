@@ -2,13 +2,25 @@
 
 <main>
     <ul id="users">
-        <li **ngFor="let user of users">
-            <app-user 
-                [avatar]="user.avatar"
-                [name]="user.name"
-            />
-        </li>
+        @for (user of users; track user.id) {
+            <li >
+                <app-user 
+                    [user]="user"
+                    (selectUser)="onSelectUser($event)"
+                />
+            </li>
+        }
     </ul>
+    @if (selectedUser !== undefined) {
+        <app-task
+        [name]="selectedUser.name"
+        [userId]="selectedUser.id"
+        (selectTask)="onSelectTask($event)"
+     />
+    } @else {
+        <p id="fallback"> Select a user to see their Tasks!</p>
+    }
+        
 </main>
 
 <router-outlet />
