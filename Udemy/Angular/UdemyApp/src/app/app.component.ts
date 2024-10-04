@@ -13,7 +13,7 @@ import { SingleTaskComponent } from './tasks/singleTask/singleTask.component';
     RouterOutlet,
     HeaderComponent, 
     UserComponent,
-    TaskComponent
+    TaskComponent 
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

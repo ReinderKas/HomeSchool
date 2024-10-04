@@ -1,4 +1,4 @@
-import { Component, input } from "@angular/core";
+import { Component, input, output } from "@angular/core";
 import { Task } from "../../../models/task";
 
 @Component({
@@ -10,4 +10,9 @@ import { Task } from "../../../models/task";
 
 export class SingleTaskComponent {
   task = input.required<Task>();
+  deleted = output<string>();
+
+  deleteTask(){
+    this.deleted.emit(this.task().id)
+  }
 }
